@@ -1,0 +1,22 @@
+name: 自动生成EXE
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: 安装Python环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    - name: 安装依赖库
+      run: |
+        pip install pyinstaller pandas openpyxl
+    - name: 生成EXE文件
+      run: pyinstaller --onefile --name 早餐名单拆分工具 breakfast_splitter.py
+    - uses: actions/upload-artifact@v3
+      with:
+        name: 成品程序
+        path: dist/
