@@ -18,5 +18,5 @@ jobs:
       run: pyinstaller --onefile --name 早餐名单拆分工具 breakfast_splitter.py
     - uses: actions/upload-artifact@v4
       with:
-        name: 成品程序
+        name: output
         path: dist/
