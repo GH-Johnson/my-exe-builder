@@ -16,7 +16,7 @@ jobs:
         pip install pyinstaller pandas openpyxl
     - name: 生成EXE文件
       run: pyinstaller --onefile --name 早餐名单拆分工具 breakfast_splitter.py
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: 成品程序
         path: dist/
